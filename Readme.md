@@ -48,3 +48,29 @@ Pro:
 1. No request sees a wrong state of the system [ reporting that an ingredient is unavailable, even though it is available after some time ]
 2. We can use ingredient-level mutexes to achieve some degree of concurrency.
  
+ 
+ 
+Benchmarking results:
+Input - 50000 item requests [ all demanding similar ingredients ]
+File: src/services/testdata/benchmarkdata/testdata1_pretty.json
+
+Benchmark screenshot
+https://drive.google.com/file/d/1wb0a83X65fFSKWQY5nzTCjeLure6shXv/view?usp=sharing
+
+Test #1
+
+    Parameters:    
+    GOMAXPROCS = 1
+    num_of_outlets = 1
+    
+    Time taken = 21.283s
+
+
+Test #2
+
+    Parameters:
+    GOMAXPROCS = 8
+    num_of_outlets = 8
+    
+    Time taken = 13.330s
+
